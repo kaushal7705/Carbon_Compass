@@ -370,7 +370,6 @@ export default function App() {
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
     };
-    const reportWindow = window.open('', '_blank');
     const result = calculateFootprint(habits);
     const scoreLevel = getScoreLevel(result.score);
     const totalTons = (result.total / 1000).toFixed(1);
@@ -660,9 +659,18 @@ export default function App() {
       </html>
     `;
     
-    reportWindow.document.write(printHtml);
-    reportWindow.document.close();
-    showNotification("Sustainability report downloaded successfully!", "success");
+    const blob = new Blob([printHtml], { type: 'text/html;charset=utf-8' });
+    const blobUrl = URL.createObjectURL(blob);
+    const reportWindow = window.open(blobUrl, '_blank');
+    
+    if (reportWindow) {
+      showNotification("Sustainability report downloaded successfully!", "success");
+      setTimeout(() => {
+        URL.revokeObjectURL(blobUrl);
+      }, 5000);
+    } else {
+      showNotification("Pop-up blocked! Please allow pop-ups to view the report.", "warning");
+    }
   };
 
   const handleStartAssessment = () => {
