@@ -21,6 +21,7 @@ export default function Navigation({ activeTab, setActiveTab }) {
             onClick={() => setActiveTab(item.id)}
             className={`nav-item ${isActive ? 'nav-item-active' : ''}`}
             aria-label={item.label}
+            aria-current={isActive ? 'page' : undefined}
           >
             <Icon />
             <span>{item.label}</span>

@@ -427,6 +427,7 @@ export default function CarbonTwin({ habits }) {
               <div style={{ marginTop: '16px', borderTop: '1px solid var(--border)', paddingTop: '12px' }}>
                 <button 
                   onClick={() => setExplainTwinOpen(!explainTwinOpen)}
+                  aria-expanded={explainTwinOpen}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -572,56 +573,64 @@ export default function CarbonTwin({ habits }) {
               {/* Slider 1: Food Delivery */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', fontWeight: 600, marginBottom: '4px' }}>
-                  <span>🍔 Food Delivery</span>
-                  <span style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>-{Math.round(deliveryAdjustment)} orders/wk</span>
+                  <label htmlFor="twin-slider-delivery" id="label-twin-slider-delivery">🍔 Food Delivery</label>
+                  <span id="val-twin-slider-delivery" style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>-{Math.round(deliveryAdjustment)} orders/wk</span>
                 </div>
                 <input 
+                  id="twin-slider-delivery"
                   type="range" min="0" max={habits.food_delivery} step="0.1"
                   value={deliveryAdjustment} onChange={e => setDeliveryAdjustment(Number(e.target.value))} 
                   className="custom-range"
                   disabled={isGenerating}
+                  aria-describedby="val-twin-slider-delivery"
                 />
               </div>
 
               {/* Slider 2: Shift to Public Transit */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', fontWeight: 600, marginBottom: '4px' }}>
-                  <span>🚇 Transit Shift</span>
-                  <span style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>{Math.round(transitShift)}% shifted</span>
+                  <label htmlFor="twin-slider-transit" id="label-twin-slider-transit">🚇 Transit Shift</label>
+                  <span id="val-twin-slider-transit" style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>{Math.round(transitShift)}% shifted</span>
                 </div>
                 <input 
+                  id="twin-slider-transit"
                   type="range" min="0" max="100" step="1"
                   value={transitShift} onChange={e => setTransitShift(Number(e.target.value))} 
                   className="custom-range"
                   disabled={isGenerating}
+                  aria-describedby="val-twin-slider-transit"
                 />
               </div>
 
               {/* Slider 3: Reduce AC Usage */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', fontWeight: 600, marginBottom: '4px' }}>
-                  <span>❄️ AC Runtime</span>
-                  <span style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>-{Math.round(acAdjustment)} hrs/day</span>
+                  <label htmlFor="twin-slider-ac" id="label-twin-slider-ac">❄️ AC Runtime</label>
+                  <span id="val-twin-slider-ac" style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>-{Math.round(acAdjustment)} hrs/day</span>
                 </div>
                 <input 
+                  id="twin-slider-ac"
                   type="range" min="0" max={habits.ac_usage} step="0.1"
                   value={acAdjustment} onChange={e => setAcAdjustment(Number(e.target.value))} 
                   className="custom-range"
                   disabled={isGenerating}
+                  aria-describedby="val-twin-slider-ac"
                 />
               </div>
 
               {/* Slider 4: Electronics Purchases */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', fontWeight: 600, marginBottom: '4px' }}>
-                  <span>📱 Electronics</span>
-                  <span style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>-{Math.round(electronicsAdjustment)} devices/yr</span>
+                  <label htmlFor="twin-slider-electronics" id="label-twin-slider-electronics">📱 Electronics</label>
+                  <span id="val-twin-slider-electronics" style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>-{Math.round(electronicsAdjustment)} devices/yr</span>
                 </div>
                 <input 
+                  id="twin-slider-electronics"
                   type="range" min="0" max={habits.electronics} step="0.1"
                   value={electronicsAdjustment} onChange={e => setElectronicsAdjustment(Number(e.target.value))} 
                   className="custom-range"
                   disabled={isGenerating}
+                  aria-describedby="val-twin-slider-electronics"
                 />
               </div>
             </div>

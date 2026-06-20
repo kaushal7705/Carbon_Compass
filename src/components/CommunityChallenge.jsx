@@ -74,6 +74,7 @@ export default function CommunityChallenge({ leaderboardData = [], lobbiesData =
           <button
             key={tab.id}
             onClick={() => setActiveSubTab(tab.id)}
+            aria-pressed={activeSubTab === tab.id}
             style={{
               flex: 1,
               border: 'none',
@@ -108,11 +109,11 @@ export default function CommunityChallenge({ leaderboardData = [], lobbiesData =
             <table className="leaderboard-table">
               <thead>
                 <tr>
-                  <th style={{ width: '80px' }}>Rank</th>
-                  <th>User</th>
-                  <th style={{ textAlign: 'center' }}>Carbon Score</th>
-                  <th style={{ textAlign: 'right' }}>Improvement</th>
-                  <th style={{ textAlign: 'right', paddingRight: '20px' }}>Unlocked Badges</th>
+                  <th scope="col" style={{ width: '80px' }}>Rank</th>
+                  <th scope="col">User</th>
+                  <th scope="col" style={{ textAlign: 'center' }}>Carbon Score</th>
+                  <th scope="col" style={{ textAlign: 'right' }}>Improvement</th>
+                  <th scope="col" style={{ textAlign: 'right', paddingRight: '20px' }}>Unlocked Badges</th>
                 </tr>
               </thead>
               <tbody>
@@ -235,6 +236,7 @@ export default function CommunityChallenge({ leaderboardData = [], lobbiesData =
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
+                aria-pressed={activeCategory === cat.id}
                 style={{
                   border: activeCategory === cat.id ? '1px solid var(--primary)' : '1px solid var(--border)',
                   borderRadius: '12px',
@@ -273,12 +275,12 @@ export default function CommunityChallenge({ leaderboardData = [], lobbiesData =
               <table className="leaderboard-table">
                 <thead>
                   <tr>
-                    <th>Rank</th>
-                    <th>Team / Lobby</th>
-                    <th style={{ textAlign: 'center' }}>Members</th>
-                    <th style={{ textAlign: 'right' }}>Total Saved</th>
-                    <th style={{ textAlign: 'right' }}>Quests Done</th>
-                    <th style={{ textAlign: 'right' }}>Net Improvement</th>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Team / Lobby</th>
+                    <th scope="col" style={{ textAlign: 'center' }}>Members</th>
+                    <th scope="col" style={{ textAlign: 'right' }}>Total Saved</th>
+                    <th scope="col" style={{ textAlign: 'right' }}>Quests Done</th>
+                    <th scope="col" style={{ textAlign: 'right' }}>Net Improvement</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -385,6 +387,7 @@ export default function CommunityChallenge({ leaderboardData = [], lobbiesData =
                       
                       <button 
                         onClick={() => handleJoinShared(sm.id)}
+                        aria-pressed={isJoined}
                         style={{
                           border: 'none',
                           borderRadius: '8px',
@@ -433,6 +436,7 @@ export default function CommunityChallenge({ leaderboardData = [], lobbiesData =
               <button 
                 className="btn btn-secondary" 
                 onClick={() => setShowInviteModal(true)}
+                aria-haspopup="dialog"
                 style={{ 
                   marginTop: '10px', 
                   fontSize: '0.75rem', 
@@ -473,6 +477,7 @@ export default function CommunityChallenge({ leaderboardData = [], lobbiesData =
             
             <form onSubmit={handleSendInvite}>
               <input 
+                id="invite-email-input"
                 type="email" 
                 className="chat-input"
                 style={{ width: '100%', marginBottom: '16px', border: '1px solid var(--border)' }}
@@ -481,6 +486,7 @@ export default function CommunityChallenge({ leaderboardData = [], lobbiesData =
                 value={inviteEmail}
                 onChange={e => setInviteEmail(e.target.value)}
                 disabled={inviteSent}
+                aria-label="Friend's email address"
               />
               <div style={{ display: 'flex', gap: '8px' }}>
                 <button 

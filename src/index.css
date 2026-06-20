@@ -1261,3 +1261,20 @@ input:checked + .toggle-slider:before {
   animation: aiPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+/* Accessibility Focus Rings for Keyboard Navigation */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(82, 183, 136, 0.25) !important;
+}
+
+.custom-range:focus-visible {
+  outline: 2px solid var(--primary) !important;
+  outline-offset: 4px !important;
+}
+
+

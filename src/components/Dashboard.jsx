@@ -184,6 +184,7 @@ export default function Dashboard({
             {scoreLevel.label} Rating
             <button 
               onClick={() => handleOpenExplainability('score')}
+              aria-label="Explain Eco Score rating calculation"
               style={{
                 background: 'none',
                 border: 'none',
@@ -395,6 +396,7 @@ export default function Dashboard({
                       {cat.pct}%
                       <button 
                         onClick={() => handleOpenExplainability(cat.id)}
+                        aria-label={`Explain ${cat.label} score breakdown`}
                         style={{
                           background: 'none',
                           border: 'none',
@@ -435,6 +437,8 @@ export default function Dashboard({
                 {/* Collapsible reasoning trigger */}
                 <button
                   onClick={() => setWhyActionOpen(!whyActionOpen)}
+                  aria-expanded={whyActionOpen}
+                  aria-label="Toggle analysis of why this recommendation was chosen"
                   style={{
                     background: 'none',
                     border: 'none',

@@ -361,6 +361,15 @@ export default function App() {
   };
 
   const handleDownloadReport = () => {
+    const escapeHtml = (str) => {
+      if (!str) return '';
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    };
     const reportWindow = window.open('', '_blank');
     const result = calculateFootprint(habits);
     const scoreLevel = getScoreLevel(result.score);
@@ -542,7 +551,7 @@ export default function App() {
             <div class="grid-metrics">
               <div class="card-metric">
                 <span class="card-label">User Profile</span>
-                <div class="card-val">${profile.name}</div>
+                 <div class="card-val">${escapeHtml(profile.name)}</div>
               </div>
               <div class="card-metric">
                 <span class="card-label">Carbon Health Score</span>
@@ -902,6 +911,7 @@ export default function App() {
                     key={item.id}
                     onClick={() => handleSetTab(item.id)}
                     className={`sidebar-item ${activeClass}`}
+                    aria-pressed={activeTab === item.id}
                   >
                     <Icon size={18} />
                     <span>{item.label}</span>
@@ -966,6 +976,8 @@ export default function App() {
               className="btn-icon" 
               onClick={() => handleSetTab('community')}
               title="Team Lobbies"
+              aria-label="Team Lobbies"
+              aria-pressed={activeTab === 'community'}
               style={{ color: activeTab === 'community' ? 'var(--primary)' : 'var(--text-secondary)', cursor: 'pointer' }}
             >
               <Users size={20} />
@@ -974,6 +986,8 @@ export default function App() {
               className="btn-icon" 
               onClick={() => handleSetTab('progress')}
               title="Progress Log"
+              aria-label="Progress Log"
+              aria-pressed={activeTab === 'progress'}
               style={{ color: activeTab === 'progress' ? 'var(--primary)' : 'var(--text-secondary)', cursor: 'pointer' }}
             >
               <History size={20} />
@@ -982,6 +996,8 @@ export default function App() {
               className="btn-icon" 
               onClick={() => setDarkMode(!darkMode)}
               title="Toggle Theme"
+              aria-label="Toggle Theme"
+              aria-pressed={darkMode}
               style={{ cursor: 'pointer' }}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -1002,6 +1018,8 @@ export default function App() {
                 transition: 'var(--transition)'
               }}
               title="My Profile"
+              aria-label={`My Profile settings. Selected avatar: ${profile.avatar}`}
+              aria-pressed={activeTab === 'settings'}
             >
               {profile.avatar}
             </button>

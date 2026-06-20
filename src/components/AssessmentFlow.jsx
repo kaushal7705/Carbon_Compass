@@ -84,73 +84,85 @@ export default function AssessmentFlow({ onComplete, initialHabits }) {
               
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>🚗 Car Commute</span>
-                  <span className="slider-value">{habits.car} km/week</span>
+                  <label htmlFor="slider-car" id="label-slider-car">🚗 Car Commute</label>
+                  <span id="val-slider-car" className="slider-value">{habits.car} km/week</span>
                 </div>
                 <input 
+                  id="slider-car"
                   type="range" min="0" max="300" step="10"
                   value={habits.car} onChange={e => handleSliderChange('car', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-car"
                 />
               </div>
 
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>🏍️ Motorcycle / Bike</span>
-                  <span className="slider-value">{habits.bike} km/week</span>
+                  <label htmlFor="slider-bike" id="label-slider-bike">🏍️ Motorcycle / Bike</label>
+                  <span id="val-slider-bike" className="slider-value">{habits.bike} km/week</span>
                 </div>
                 <input 
+                  id="slider-bike"
                   type="range" min="0" max="150" step="5"
                   value={habits.bike} onChange={e => handleSliderChange('bike', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-bike"
                 />
               </div>
 
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>🚇 Metro / Train</span>
-                  <span className="slider-value">{habits.metro} km/week</span>
+                  <label htmlFor="slider-metro" id="label-slider-metro">🚇 Metro / Train</label>
+                  <span id="val-slider-metro" className="slider-value">{habits.metro} km/week</span>
                 </div>
                 <input 
+                  id="slider-metro"
                   type="range" min="0" max="200" step="10"
                   value={habits.metro} onChange={e => handleSliderChange('metro', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-metro"
                 />
               </div>
 
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>🚌 Bus Travel</span>
-                  <span className="slider-value">{habits.bus} km/week</span>
+                  <label htmlFor="slider-bus" id="label-slider-bus">🚌 Bus Travel</label>
+                  <span id="val-slider-bus" className="slider-value">{habits.bus} km/week</span>
                 </div>
                 <input 
+                  id="slider-bus"
                   type="range" min="0" max="150" step="5"
                   value={habits.bus} onChange={e => handleSliderChange('bus', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-bus"
                 />
               </div>
 
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>🚕 Cabs / Ride-Shares</span>
-                  <span className="slider-value">{habits.cab} km/week</span>
+                  <label htmlFor="slider-cab" id="label-slider-cab">🚕 Cabs / Ride-Shares</label>
+                  <span id="val-slider-cab" className="slider-value">{habits.cab} km/week</span>
                 </div>
                 <input 
+                  id="slider-cab"
                   type="range" min="0" max="100" step="5"
                   value={habits.cab} onChange={e => handleSliderChange('cab', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-cab"
                 />
               </div>
 
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>✈️ Flights Taken</span>
-                  <span className="slider-value">{habits.flights} hours/year</span>
+                  <label htmlFor="slider-flights" id="label-slider-flights">✈️ Flights Taken</label>
+                  <span id="val-slider-flights" className="slider-value">{habits.flights} hours/year</span>
                 </div>
                 <input 
+                  id="slider-flights"
                   type="range" min="0" max="80" step="2"
                   value={habits.flights} onChange={e => handleSliderChange('flights', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-flights"
                 />
               </div>
             </div>
@@ -203,13 +215,15 @@ export default function AssessmentFlow({ onComplete, initialHabits }) {
 
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>🛵 Food Deliveries (Zomato/Swiggy/Uber)</span>
-                  <span className="slider-value">{habits.food_delivery} orders/week</span>
+                  <label htmlFor="slider-food-delivery" id="label-slider-food-delivery">🛵 Food Deliveries (Zomato/Swiggy/Uber)</label>
+                  <span id="val-slider-food-delivery" className="slider-value">{habits.food_delivery} orders/week</span>
                 </div>
                 <input 
+                  id="slider-food-delivery"
                   type="range" min="0" max="15" step="1"
                   value={habits.food_delivery} onChange={e => handleSliderChange('food_delivery', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-food-delivery"
                 />
                 <p style={{ fontSize: '0.75rem', marginTop: '4px', color: 'var(--text-muted)' }}>
                   Delivery packaging and bike transit generate micro-emissions.
@@ -240,13 +254,15 @@ export default function AssessmentFlow({ onComplete, initialHabits }) {
 
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>❄️ Air Conditioning (AC) Usage</span>
-                  <span className="slider-value">{habits.ac_usage} hours/day</span>
+                  <label htmlFor="slider-ac-usage" id="label-slider-ac-usage">❄️ Air Conditioning (AC) Usage</label>
+                  <span id="val-slider-ac-usage" className="slider-value">{habits.ac_usage} hours/day</span>
                 </div>
                 <input 
+                  id="slider-ac-usage"
                   type="range" min="0" max="24" step="1"
                   value={habits.ac_usage} onChange={e => handleSliderChange('ac_usage', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-ac-usage"
                 />
               </div>
 
@@ -296,25 +312,29 @@ export default function AssessmentFlow({ onComplete, initialHabits }) {
 
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>👕 Fast Fashion Clothes bought</span>
-                  <span className="slider-value">{habits.fast_fashion} items/month</span>
+                  <label htmlFor="slider-fast-fashion" id="label-slider-fast-fashion">👕 Fast Fashion Clothes bought</label>
+                  <span id="val-slider-fast-fashion" className="slider-value">{habits.fast_fashion} items/month</span>
                 </div>
                 <input 
+                  id="slider-fast-fashion"
                   type="range" min="0" max="10" step="1"
                   value={habits.fast_fashion} onChange={e => handleSliderChange('fast_fashion', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-fast-fashion"
                 />
               </div>
 
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>📱 New Electronics purchased</span>
-                  <span className="slider-value">{habits.electronics} devices/year</span>
+                  <label htmlFor="slider-electronics" id="label-slider-electronics">📱 New Electronics purchased</label>
+                  <span id="val-slider-electronics" className="slider-value">{habits.electronics} devices/year</span>
                 </div>
                 <input 
+                  id="slider-electronics"
                   type="range" min="0" max="6" step="1"
                   value={habits.electronics} onChange={e => handleSliderChange('electronics', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-electronics"
                 />
                 <p style={{ fontSize: '0.75rem', marginTop: '4px', color: 'var(--text-muted)' }}>
                   Includes smartphones, tablets, laptops, gaming systems.
@@ -369,13 +389,15 @@ export default function AssessmentFlow({ onComplete, initialHabits }) {
 
               <div className="slider-container">
                 <div className="slider-header">
-                  <span>🏠 Work From Home (WFH)</span>
-                  <span className="slider-value">{habits.wfh_days} days/week</span>
+                  <label htmlFor="slider-wfh-days" id="label-slider-wfh-days">🏠 Work From Home (WFH)</label>
+                  <span id="val-slider-wfh-days" className="slider-value">{habits.wfh_days} days/week</span>
                 </div>
                 <input 
+                  id="slider-wfh-days"
                   type="range" min="0" max="5" step="1"
                   value={habits.wfh_days} onChange={e => handleSliderChange('wfh_days', e.target.value)} 
                   className="custom-range"
+                  aria-describedby="val-slider-wfh-days"
                 />
                 <p style={{ fontSize: '0.75rem', marginTop: '4px', color: 'var(--text-muted)' }}>
                   WFH days apply a reduction percentage to your transportation footprint.

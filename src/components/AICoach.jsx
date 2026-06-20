@@ -323,6 +323,7 @@ export default function AICoach({ habits, onAddMission }) {
                               flexShrink: 0
                             }}
                             title={isAdded ? "Added to missions" : "Add to missions"}
+                            aria-label={isAdded ? "Added to missions" : "Add to missions"}
                           >
                             {isAdded ? <Check size={14} /> : <Plus size={14} />}
                           </button>
@@ -370,17 +371,20 @@ export default function AICoach({ habits, onAddMission }) {
           {/* Message input */}
           <div className="chat-input-row" style={{ padding: '12px 20px', borderTop: '1px solid var(--border)' }}>
             <input
+              id="ai-coach-chat-input"
               type="text"
               className="chat-input"
               placeholder="Ask your climate companion..."
               value={inputVal}
               onChange={e => setInputVal(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && handleSendMessage(inputVal)}
+              aria-label="Ask your climate companion..."
             />
             <button 
               className="btn btn-primary"
               style={{ width: '45px', height: '45px', padding: 0, borderRadius: '12px' }}
               onClick={() => handleSendMessage(inputVal)}
+              aria-label="Send message"
             >
               <Send size={16} />
             </button>

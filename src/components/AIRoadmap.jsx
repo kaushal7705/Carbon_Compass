@@ -273,6 +273,7 @@ export default function AIRoadmap({ habits, onAddMission, onDownloadReport }) {
           <button
             key={tab.id}
             onClick={() => setActivePhase(tab.id)}
+            aria-pressed={activePhase === tab.id}
             style={{
               flex: 1,
               border: 'none',
@@ -398,6 +399,7 @@ export default function AIRoadmap({ habits, onAddMission, onDownloadReport }) {
                           <div style={{ marginBottom: '12px' }}>
                             <button
                               onClick={() => toggleRoadmapReason(act.id)}
+                              aria-expanded={expandedRoadmap[act.id] || false}
                               style={{
                                 background: 'none',
                                 border: 'none',

@@ -130,6 +130,7 @@ export default function MissionsBadges({
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
+            aria-pressed={activeTab === tab.id}
             style={{
               flex: 1,
               border: 'none',
@@ -206,6 +207,7 @@ export default function MissionsBadges({
                         className="btn btn-primary"
                         style={{ width: '32px', height: '32px', padding: 0, borderRadius: '50%', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF' }}
                         title="Mark complete"
+                        aria-label={`Mark mission '${mission.title}' complete`}
                       >
                         ✓
                       </button>

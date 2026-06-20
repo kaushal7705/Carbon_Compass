@@ -35,10 +35,14 @@ export default function SettingsProfile({
         <h3 className="card-title"><User size={18} /> Personal Profile</h3>
         
         <div style={{ margin: '14px 0' }}>
-          <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '6px' }}>
+          <label 
+            htmlFor="profile-name-input"
+            style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '6px' }}
+          >
             YOUR NAME
           </label>
           <input 
+            id="profile-name-input"
             type="text" 
             className="chat-input"
             style={{ width: '100%', border: '1px solid var(--border)', fontSize: '0.9rem' }}
@@ -58,6 +62,7 @@ export default function SettingsProfile({
               <button
                 key={av}
                 onClick={() => handleAvatarChange(av)}
+                aria-label={`Select avatar ${av}`}
                 style={{
                   fontSize: '1.5rem',
                   padding: '8px',
@@ -92,11 +97,13 @@ export default function SettingsProfile({
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             {darkMode ? <Moon size={16} style={{ color: 'var(--secondary)' }} /> : <Sun size={16} style={{ color: 'var(--accent)' }} />}
-            <label className="theme-switch">
+            <label className="theme-switch" htmlFor="theme-toggle-checkbox">
               <input 
+                id="theme-toggle-checkbox"
                 type="checkbox" 
                 checked={darkMode}
                 onChange={() => setDarkMode(!darkMode)}
+                aria-label="Toggle dark mode"
               />
               <span className="toggle-slider"></span>
             </label>
